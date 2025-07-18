@@ -30,7 +30,7 @@ jobs:
           node-version: 23
       - run: |
           echo "Installing the dependencies..."
-          npm ci
+          npm clean-install
 
       - run: |
           echo "Launching test..."
