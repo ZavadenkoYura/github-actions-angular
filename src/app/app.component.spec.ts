@@ -1,29 +1,48 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  it('Should create AppComponent', () => {
+    expect(component).toBeTruthy();
   });
 
-  it(`should have the 'frontend' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('frontend');
+  it('Should display the couner', () => {
+    expect(document.querySelector('p')).toBeTruthy();
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it('Should be equel to zero', () => {
+    expect(component.counter()).toBe(0);
+  });
+
+  it('Should increment and be called', () => {
+    // Initialize
+    spyOn(component, 'increment').and.callThrough();
+    // act
+    component.increment();
+    // assert
+    expect(component.increment).toHaveBeenCalled();
+    expect(component.counter()).toBe(1);
+  });
+
+  it('Should display an updated counter', () => {
+    // Initialize
+    const p = fixture.nativeElement.querySelector('p');
+    // act
+    component.increment();
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, frontend');
+    // assert
+    expect(p.textContent).toContain('1');
   });
 });
