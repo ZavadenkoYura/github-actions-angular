@@ -29,6 +29,6 @@ jobs:
         with:
           node-version: 23
 
-      - run: echo "Building for $NODE_ENV"
+      - run: echo "Building for $NODE_ENV with some secrets ${{ secrets.API_KEY }}"
       - run: npm ci
       - run: npm test
