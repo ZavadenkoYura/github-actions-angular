@@ -1,15 +1,11 @@
-import { Component, WritableSignal, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { MainLayoutComponent } from './shared/layouts/main-layout.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrl: './app.component.css',
+  imports: [MainLayoutComponent],
 })
-export class AppComponent {
-  title = 'frontend';
-  counter: WritableSignal<number> = signal(0);
-
-  increment() {
-    this.counter.update((pre) => pre + 1);
-  }
-}
+export class AppComponent {}

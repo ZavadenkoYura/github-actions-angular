@@ -1,0 +1,42 @@
+<div
+  class="max-w-sm mx-auto mt-32 bg-[#1E1E1E] rounded-xl shadow-lg overflow-hidden md:max-w-md p-4"
+>
+  <div class="flex justify-start mb-4">
+    <button
+      class="flex items-center space-x-2 text-sm bg-[#2C2C2C] text-gray-300 px-4 py-2 rounded-full hover:bg-[#3A3A3A] transition duration-200 focus:outline-none focus:ring-2 focus:ring-[#555]"
+      (click)="navigateToMainSection()"
+    >
+      <span class="text-lg">⬅️</span>
+      <span>Back</span>
+    </button>
+  </div>
+
+  <div class="flex flex-col items-center">
+    <div class="w-full flex justify-center">
+      <img
+        class="h-48 w-48 object-cover rounded-xl mt-4"
+        [src]="user?.avatar_url"
+        alt="User Avatar"
+      />
+    </div>
+    <div class="p-8 text-center w-full">
+      <div class="flex items-center justify-center mb-2">
+        <div
+          class="uppercase tracking-wide text-2xl text-[#E0E0E0] font-semibold flex items-center"
+        >
+          {{ user?.username }}
+          <span class="ml-2 text-[#CF6679] text-sm">(No verified)</span>
+        </div>
+      </div>
+      <p class="mt-2 text-[#B0B0B0] text-sm">{{ user?.bio }}</p>
+
+      <div class="mt-8 flex justify-center">
+        <button
+          class="px-6 py-3 bg-[#00C853] text-white font-semibold rounded-full shadow-md hover:bg-[#00A844] focus:outline-none focus:ring-2 focus:ring-[#333333] focus:ring-opacity-75 transition duration-300 ease-in-out flex items-center"
+        >
+          Update 👆
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

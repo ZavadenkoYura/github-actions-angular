@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+body {
+  background: #121212;
+}
+
+.avatar {
+  @apply w-12 h-12 rounded-full object-cover border border-gray-700 cursor-pointer flex justify-center items-center text-2xl;
+}

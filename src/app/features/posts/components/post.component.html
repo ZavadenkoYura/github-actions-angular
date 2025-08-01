@@ -1,0 +1,35 @@
+<div
+  class="bg-[#1E1E1E] rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02] hover:shadow-lg"
+>
+  <img
+    [src]="post().image"
+    alt="Post thumbnail"
+    class="w-full h-40 object-cover"
+  />
+  <div class="p-5 flex flex-col justify-between h-full">
+    <div class="flex items-center mb-3">
+      <img
+        [src]="post().authorAvatar"
+        alt="Author"
+        class="w-8 h-8 rounded-full mr-3 object-cover border border-gray-700"
+      />
+      <span class="text-sm text-gray-400">{{ post().author }}</span>
+    </div>
+
+    <h3 class="text-lg text-white font-semibold mb-2">
+      {{ post().title }}
+    </h3>
+
+    <p class="text-sm text-gray-400 mb-4">
+      {{ post().excerpt }}
+    </p>
+
+    <div class="flex flex-wrap gap-2 mt-auto">
+      @for (tag of post().tags; track $index) {
+      <span class="text-xs bg-[#2E2E2E] text-gray-300 px-2 py-1 rounded-full">
+        #{{ tag }}
+      </span>
+      }
+    </div>
+  </div>
+</div>
